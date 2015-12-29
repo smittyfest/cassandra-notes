@@ -13,5 +13,5 @@ When you send a write to a Cassandra cluster, all nodes in the ring are equal so
 #### The Read Path
 Reads in Cassandra are very similar to writes. Whichever node you happen to be talking to for an individual read request becomes the coordinator node. On a node level, Cassandra goes to disk and looks for whatever data it is you asked for, and it might have to look in multiple sstables. Compaction is running as a background-process to merge these sstables together, but you might have some rows that are spread across multiple sstables where compaction hasn't had a chance to run and combine them together yet.
 <p>So once it pulls the data out of what could be multiple sstables, it will pull that up into memory, merge them together, using the timestamp where the last write wins, and if there's any un-flushed data in the memtable that gets merged as well and then we can send a request back to the coordinator and say "here's the data you were looking for".
-
+<p>Since we might be reading from multiple sstables on disk, if you have a read-heavy workload in Cassandra, the choice of disk
 
