@@ -7,7 +7,8 @@ When you send a write to a Cassandra cluster, all nodes in the ring are equal so
 <p>Once it does that it can respond back to the coordinator "yep, we have your data" and the coordinator relays this response back to the client.
 <p>Cassandra has very fast writes, and is good at ingesting lots of data really quickly. Part of this is because of the simple write path.
 <p>Every time you write to Cassandra, every column value that you write gets a timestamp. This is important for how SSTables work and for Compaction. As data gets written to the __memtables__ eventually we start to run out of main-memory, so eventually we have to take the memtables and flush them to disk. Cassandra does this behind-the-scenes asynchronously, with a whole bunch of very-fast sequential-io where it takes the in-memory representation memtable and serializes it to disk into something called an __SSTable__.
-<p>Cassandra does not do any updates in-place or deletes in-place.
+<p>Cassandra does not do any updates in-place or deletes in-place. __The SSTables that get written are immutable__. __Your Commit Log is immutable__. What Cassandra actually does when you delete data is it writes a special kind of record called a __tombstone__. This is just a marker that says "there's no data here anymore as of this timestamp for this column". Tombstones also get a timestamp like regular data does.
+<p>Once a memtable gets full it gets written to disk as an immutable sstable. What happens when too many sstables are written to disk? How does that function?
 
 #### The Read Path
 
