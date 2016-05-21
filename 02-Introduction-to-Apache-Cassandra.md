@@ -32,3 +32,4 @@ This replication of data is performed automatically by Apache Cassandra. You pic
 #### Consistency-Level
 Consistency-Level can be set on any given read or write request that you do as a developer from your application talking to Apache Cassandra.
 <p>Consistency-Level means how many replicas do I need to hear from when doing a read or a write for that read or that write to be considered successful. So if I'm doing a read, how many replicas do I need to hear from before Cassandra gives the data back to the client, or if I'm doing a write, how many replicas need to confirm that they have received the data and written it to disk before Cassandra replies back to the client and says "yep, got your data".
+<p>The two most popular __consistency-levels__ are __one__ and __LOCAL_QUORUM__.
