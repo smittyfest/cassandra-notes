@@ -30,3 +30,4 @@ This replication of data is performed automatically by Apache Cassandra. You pic
 <p>You set the __replication-factor__ when you configure a __keyspace__. A __keyspace__ in Apache Cassandra is essenetially a collection of tables. It is very similar to a schema in Oracle or a database in MySQL or Microsoft SQL Server.
 <p>If a machine goes down during replication, the missing data is replayed via Cassandra's __Hinted Handoff__ mechanism. Replication happens asynchronously, and if a machine goes down, whatever node you happen to be talking to at that time stores a __hint__, and when that node comes back up and re-joins the cluster, all the writes that the down node missed are replayed back to it in the form of these __hints__.
 #### Consistency-Level
+Consistency-Level can be set on any given read or write request that you do as a developer from your application talking to Apache Cassandra.
