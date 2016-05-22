@@ -28,4 +28,4 @@ During a network partition (when computers can't talk to eachother) either betwe
 <p>How many replicas or copies of data should there be within your cluster. A typical production replication-factor is typically three. When you write data to a node 'A', a replica is sent over to nodes 'B' and 'C' as well.
 This replication of data is performed automatically by Apache Cassandra. You pick the number of servers to hold replicas and data is always replicated to each replica.
 <p>You set the __replication-factor__ when you configure a __keyspace__. A __keyspace__ in Apache Cassandra is essenetially a collection of tables. It is very similar to a schema in Oracle or a database in MySQL or Microsoft SQL Server.
-<p>If a machine goes down, missing data is replayed via __Hinted Handoff__.
+<p>If a machine goes down during replication, the missing data is replayed via Cassandra's __Hinted Handoff__ mechanism.
