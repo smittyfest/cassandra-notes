@@ -25,4 +25,4 @@ During a network partition (when computers can't talk to eachother) either betwe
 <p>From datacenter to datacenter it is completely impractical to be consistent across datacenters. We want to __asynchronously__ replicate our data from one datacenter to another because it just takes way too long to get data from the U.S. to Asia or vice-versa. We are limited by the speed of light, and this is something we are just never going to get around. This is why Apache Cassandra chooses Availability and this is how it affects Consistency.
 <p>Apache Cassandra does not impose any one Fault-Tolerance model on you, so some of the dials it provides give you a sliding scale between consistency and high availability.
 #### Replication Factor
-<p>How many replicas or copies of data should there be within your cluster.
+<p>How many replicas or copies of data should there be within your cluster. A typical production replication factor is typically three. When you write data to a node 'A', a replica is sent over to nodes 'B' and 'C' as well.
