@@ -26,3 +26,4 @@ During a network partition (when computers can't talk to eachother) either betwe
 <p>Apache Cassandra does not impose any one Fault-Tolerance model on you, so some of the dials it provides give you a sliding scale between consistency and high availability.
 #### Replication Factor
 <p>How many replicas or copies of data should there be within your cluster. A typical production replication factor is typically three. When you write data to a node 'A', a replica is sent over to nodes 'B' and 'C' as well.
+This replication of data is performed automatically by Apache Cassandra. You pick the number of servers to hold replicas and data is always replicated to each replica. If a machine goes down, missing data is replayed via __Hinted Handoff__.
