@@ -21,4 +21,4 @@ Apache Cassandra runs as a cluster that can be thought of as a giant hash-ring. 
 <p>All nodes hold data and can answer queries, both reads and writes.
 <p>Location of data on the ring determined by the __partition key__.
 ### Brewer's Cap Theorem
-
+During a network partition (when computers can't talk to eachother) either between datacenters or on a single network, you can either get consistency or high availability, but not both. So if two machines can't talk to eachother, and you do a write to them and you have to be completely consistent, the system is going to appear as if it is down. So if we give up consistency we can hava high availability. This is what Apache Cassandra chooses, __Availability__ and __Partition Tolerance__.
