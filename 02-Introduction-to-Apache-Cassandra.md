@@ -14,3 +14,9 @@ Apache Cassandra is a fast distributed database built forhigh availability and l
 Apache Cassandra runs as a cluster that can be thought of as a giant hash-ring. All nodes in the cluster are equal and each node owns a range of hashes, like a bucket of hashes. 
 <p>When you define a data-model in Apache Cassandra one of the things you specify when you create a table is the __Primary Key__, and part of that primary key is the __Partition Key__. 
 <p>The __partition key__ is what is used when you insert data into Cassandra. The value of that partition key is run through a __consistent-hashing function__ and depending on the hash value computed we can figure out which bucket or which range of hashes that value fits into and thus __which node__ we need to go talk to in order to distribute the data around the ring.
+<p>Data is replicated to multiple servers, and all those servers are equal. There are no masters or slaves or replica sets.
+<p>No configuration servers, no zookeeper.
+<p>Data is partitioned around the ring via the __partition key__.
+<p>Data is replicated to __replication_factor__ nodes, where replication_factor is the number of replicas we wish to store, which is configurable.
+<p>All nodes hold data and can answer queries, both reads and writes.
+<p>Location of data on the ring determined by the __partition key__.
