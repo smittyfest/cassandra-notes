@@ -20,3 +20,5 @@ Apache Cassandra runs as a cluster that can be thought of as a giant hash-ring. 
 <p>Data is replicated to __replication_factor__ nodes, where replication_factor is the number of replicas we wish to store, which is configurable.
 <p>All nodes hold data and can answer queries, both reads and writes.
 <p>Location of data on the ring determined by the __partition key__.
+### Brewer's Cap Theorem
+
