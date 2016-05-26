@@ -11,4 +11,4 @@ Apache Cassandra is a fast distributed database built forhigh availability and l
 <p>Not a drop-in replacement for RDBMS. Not the same data-model, you need to design your application around Apache Cassandra's data-model and rules.
 
 #### Concepts
-Apache Cassandra runs as a cluster that can be thought of as a giant hash-ring. All nodes in the cluster are equal and each node owns a range of hashes, like a bucket of hashes. When you define a data-model in Apache Cassandra one of the things you specify is the __partition key__.
+Apache Cassandra runs as a cluster that can be thought of as a giant hash-ring. All nodes in the cluster are equal and each node owns a range of hashes, like a bucket of hashes. When you define a data-model in Apache Cassandra one of the things you specify when you create a table is the __primary key__ and part of that primary key is the __partition key__. 
