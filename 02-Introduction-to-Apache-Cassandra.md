@@ -9,3 +9,6 @@ Apache Cassandra is a fast distributed database built forhigh availability and l
 <p>Commodity hardware. Apache Cassndra works well with cheap hardware.
 <p>Easy to manage operationally as the ring grows.
 <p>Not a drop-in replacement for RDBMS. Not the same data-model, you need to design your application around Apache Cassandra's data-model and rules.
+
+#### Concepts
+Apache Cassandra runs as a cluster that can be thought of as a giant hash-ring.
