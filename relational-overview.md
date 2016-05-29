@@ -41,3 +41,6 @@
 <p>If we were to take some of the lessons we've learned and try to apply them to a brand-new database, what would we do differently?
 <p>Consistency is not practical. ACID consistency probably not practical in a large, distributed system. We give that up.
 <p>Manual Sharding and re-balancing is very hard. we push that responsibility to our cluster. Developers don't have to write any special code or tools to handle moving from 10 to 20 nodes.
+<p>Every moving part we add to the system makes things more complex (failover, processes to monitor failover). We want our system as simple as possible, with few moving parts.
+<p>Scalability is expensive. Need things like SANs, more expensive servers. We want our new database to use commodity hardware.
+<p>Scatter-Gather queries are no good. We want data-locality where queries hit a single machine, so that we are efficient and don't introduce any extra latency where we end up doing a full cluster scan (sharding) when we should only be doing a full table scan on a single node.
