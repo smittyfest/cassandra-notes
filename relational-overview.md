@@ -35,4 +35,9 @@
 <p>ACID guarantees no longer hold. Database behaves like a key-value store now.
 <p>When we want to double the size of a cluster, we have to re-shard. Requires a lot of coordination.
 <p>Denormalization. All the third-normal form queries are gone, now we write the data in a bunch of different tables, sometimes we just JSON serialize it, etc.
-<p>Multi-Datacenter is a big mess.
+<p>Multi-Datacenter is a big mess with MySQL or PostgreSQL.
+
+#### Lessons Learned
+<p>If we were to take some of the lessons we've learned and try to apply them to a brand-new database, what would we do differently?
+<p>Consistency is not practical. ACID consistency probably not practical in a large, distributed system. We give that up.
+<p>Manual Sharding and re-balancing is very hard. we push that responsibility to our cluster. Developers don't have to write any special code or tools to handle moving from 10 to 20 nodes.
