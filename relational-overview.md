@@ -30,3 +30,9 @@
 <p>__Schema changes__. Managing your schema is more difficult too. If you have 20 shards all with the same schema, you now have to write tools to apply schema changes to all the different shards in your system. All nodes in the system, masters or slaves, need these schema changes. 
 #### Introducing High Availability to an RDBMS=based system.
 <p>When you introduce replication to this master-slave architecture, you have to decide how to handle failover. Maybe you build an automatic process to perform failover, maybe its a manual process, where someone notices the database has gone down and pushes a button to switch-over to the failover service. If its an automated process, what's going to watch over this automated process to ensure it doesn't go down? In any scenario, automated or manual, you are still going to have downtime. Trying to do this with a relational database over multiple datacenters is a disaster, it is very hard to do. Planning things like OS upgrades is difficult with an RDBMS-based relational system.
+<p>### Summary of ways Relational Databases struggle with large volumes of data:
+<p>Scalability is painful. Expensive hardware, having to shard, replication that falls behind.
+<p>ACID guarantees no longer hold. Database behaves like a key-value store now.
+<p>When we want to double the size of a cluster, we have to re-shard. Requires a lot of coordination.
+<p>Denormalization. All the third-normal form queries are gone, now we write the data in a bunch of different tables, sometimes we just JSON serialize it, etc.
+<p>Multi-Datacenter is a big mess.
