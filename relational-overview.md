@@ -24,3 +24,4 @@
 <p>As we continue to scale our application, one of the next things we have to do is implement __sharding__. Sharding is when you take your data and, instead of having it all in one database and one master, you split the data up into multiple databases. This works ok for a while, but there are some problems.
 
 <p>Data is all over the place. Even if you are relying on a single master to handle all of your OLAP queries, you can't do it anymore. All of your JOINs, Aggregations, etc. are gone. You have to keep building denormalized views of your data in order to answer queries efficiently.
+<p>We also find that as we grow, querying secondary indexes becomes much more difficult.
