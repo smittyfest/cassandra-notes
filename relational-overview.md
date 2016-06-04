@@ -19,3 +19,8 @@
 <p>Another performance issue with relational databases is queries with unpredictable performance, sometimes generated behind the scenes by ORMs. Large queries with lots of JOINs, etc. Crazy queries like this can essentially lock the system up while they execute, due to having to process the query, execute disk seeks, etc.
 <p>Queries like this can cause lots of problems. They are a side-effect of using __third-normal form__ for data-modeling.
 <p>One way to alleviate this problem is through __denormalization__. We create a table specifically geared towards answering that complex query. At write time we denormalize and write the data into this table so at read-time we can do a simple __select *__ or other very simple query that doesn't have a lot of complicated JOINs in it. That means that now we have duplicated copies of our data, violating third-normal form.
+
+#### Sharding
+<p>As we continue to scale our application, one of the next things we have to do is implement __sharding__. Sharding is when you take your data and, instead of having it all in one database and one master, you split the data up into multiple databases. This works ok for a while, but there are some problems.
+
+<p>Data is all over the place.
