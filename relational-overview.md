@@ -18,4 +18,4 @@
 <p>We have lost our consistency completely within the scope of our database. The ACID guarantees that we built our application around are no longer valid. None of the operations that we perform now are performed in isolation and they are definitely not atomic. We have to re-code our application to account for replication and __replication lag__.
 <p>Another performance issue with relational databases is queries with unpredictable performance, sometimes generated behind the scenes by ORMs. Large queries with lots of JOINs, etc. Crazy queries like this can essentially lock the system up while they execute.
 <p>Queries like this can cause lots of problems. They are a side-effect of using __third-normal form__ for data-modeling.
-<p>One way to alleviate this problem is through __denormalization__. 
+<p>One way to alleviate this problem is through __denormalization__. We create a table specifically geared towards answering that complex query. At write time we denormalize and write the data into this table so at read-time we can do a simple __select *__ or other very simple query that doesn't have a lot of complicated JOINs in it. 
