@@ -12,4 +12,5 @@
 ## High Availability
 <p>How do relational databases perform when scaling for high availability?
 #### ACID no longer applies.
-<p>For example, we may have a scenario where we have a single MySQL master node and we have a client communicating with that master node. We have a read-heavy workload, so we decide to add replication. 
+<p>For example, we may have a scenario where we have a single MySQL master node and we have a client communicating with that master node. We have a read-heavy workload, so we decide to add replication.
+<p>One of the things that is important to know about this replication is that the data is replicated __asynchronously__. This leads to the behavior known as __replication lag__. 
