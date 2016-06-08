@@ -5,5 +5,6 @@ Small Data - Data in text files or a small database like sqlite3. Small utilitie
 The data might reside on your laptop and a batch might take maybe 30 seconds to run if its a really big file or sqlite3 database. 
 
 Medium Data - Fits on a single machine, using an RDBMS like PostgreSQL or MySQL. Typically supports hundreds of concurrent clients. These relational databases provide ACID Guarantees - Atomicity, Consistency, Isolation, Durability.
+<p>Typically scales vertically. More expensive hardware, more main-memory, or faster processors.
 
 High Availability - How do relational databases perform when scaling for high availability?
