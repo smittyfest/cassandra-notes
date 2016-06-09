@@ -6,6 +6,6 @@ The data might reside on your laptop and a batch might take maybe 30 seconds to 
 
 Medium Data - Fits on a single machine, using an RDBMS like PostgreSQL or MySQL. Typically supports hundreds of concurrent clients.
 
-ACID Guarantees -
+ACID Guarantees - Atomicity, Consistency, Isolation, Durability.
 
 High Availability - How do relational databases perform when scaling for high availability?
