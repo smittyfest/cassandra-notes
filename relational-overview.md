@@ -1,7 +1,7 @@
 # Relational Databases
 
 Small Data - Data in text files or a small database like sqlite3. Small utilities are used to analyze
- the data. These are usually unix tools such as Sed and Awk.
+ the data. These are usually unix tools such as Sed and Awk. Maybe you whip up a Python or Ruby script for data analysis. In general its a one-off script that doesn't need concurrency because the data is not being shared by anybody. 
 
 Medium Data - Fits on a single machine, using a database like PostgreSQL or MySQL.
 
